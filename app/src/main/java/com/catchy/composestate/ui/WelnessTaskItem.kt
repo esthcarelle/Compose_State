@@ -14,7 +14,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 
 @Composable
@@ -44,14 +44,14 @@ fun WellnessTaskItem(
     }
 }
 @Composable
-fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
-    var checkedState by remember { mutableStateOf(false) }
+fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier,onClose: () -> Unit) {
+    var checkedState by rememberSaveable { mutableStateOf(false) }
 
     WellnessTaskItem(
         taskName = taskName,
         checked = checkedState,
         onCheckedChange = { newValue -> checkedState = newValue },
-        onClose = {}, // we will implement this later!
+        onClose = onClose,
         modifier = modifier,
     )
 }
