@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.catchy.composestate.ui.WellnessScreen
+import com.catchy.composestate.ui.WellnessViewModel
 import com.catchy.composestate.ui.theme.ComposeStateTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeStateTheme {
                 // A surface container using the 'background' color from the theme
-                HelloWorld(name = "Amanda",modifier = Modifier, numberOfKids = 3)
+                WellnessScreen(wellnessViewModel = WellnessViewModel())
             }
         }
     }
