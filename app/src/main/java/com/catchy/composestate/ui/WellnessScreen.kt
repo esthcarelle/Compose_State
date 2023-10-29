@@ -8,10 +8,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun WellnessScreen(modifier: Modifier = Modifier) {
-    StatefulCounter(modifier)
+fun WellnessScreen(
+    modifier: Modifier = Modifier,
+    wellnessViewModel: WellnessViewModel = viewModel()
+) {
+    Column(modifier = modifier) {
+        StatefulCounter()
+
+        WellnessTasksList(
+            list = wellnessViewModel.tasks,
+            onCloseTask = { task -> wellnessViewModel.remove(task) })
+    }
 }
 @Composable
 fun StatefulCounter(modifier: Modifier = Modifier) {
