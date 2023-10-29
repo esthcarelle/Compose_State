@@ -55,4 +55,4 @@ fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier,onClose: ()
         modifier = modifier,
     )
 }
-data class WellnessTask(val id: Int, val label: String)
+data class WellnessTask(val id: Int, val label: String, var checked: Boolean = false)
