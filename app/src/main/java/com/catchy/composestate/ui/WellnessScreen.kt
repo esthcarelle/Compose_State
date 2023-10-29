@@ -22,13 +22,4 @@ fun WellnessScreen(
             onCloseTask = { task -> wellnessViewModel.remove(task) })
     }
 }
-@Composable
-fun StatefulCounter(modifier: Modifier = Modifier) {
-    Column(modifier = modifier) {
-        StatefulCounter()
-
-        val list = remember { getWellnessTasks().toMutableStateList() }
-//        WellnessTasksList(list = list, onCloseTask = { task -> list.remove(task) })
-    }
-}
 private fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task # $i") }
